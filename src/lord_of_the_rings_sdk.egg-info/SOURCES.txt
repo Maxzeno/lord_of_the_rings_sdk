@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+setup.cfg
+src/lord_of_the_rings_sdk/__init__.py
+src/lord_of_the_rings_sdk.egg-info/PKG-INFO
+src/lord_of_the_rings_sdk.egg-info/SOURCES.txt
+src/lord_of_the_rings_sdk.egg-info/dependency_links.txt
+src/lord_of_the_rings_sdk.egg-info/top_level.txt
