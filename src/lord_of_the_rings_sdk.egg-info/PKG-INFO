@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: lord-of-the-rings-sdk
-Version: 0.0.1
+Version: 0.0.5
 Summary: Lord of the rings sdk in Python
 Home-page: https://github.com/Maxzeno/lord_of_the_rings_sdk
 Author: Emmanuel Nwaegunwa
@@ -12,5 +12,124 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
+License-File: LICENSE.txt
 
-hola
+
+# Lord of the rings sdk
+
+SDK for Lord of the rings api
+## Setup
+
+Install
+
+```bash
+  pip install lord-of-the-rings-sdk
+```
+
+
+## API Reference
+
+#### Imports
+
+```python
+  from lord_of_the_rings_sdk import LordOfTheRings
+```
+```python
+  # The first argument is the token
+  api = LordOfTheRings('your token')
+```
+
+#### Get items eg. books
+
+```python
+  # Returns requests.models.Response object
+  resp = api.book()
+
+  # Returns json object
+  resp.json()
+
+  # Status code
+  resp.status_code
+
+```
+Same thing book, movie, character, quote, chapter
+
+#### Get single item eg. movie
+
+```python
+  # if the_id is specified it returns item with specified id
+  resp = api.movie(the_id="id of the item")
+
+  # Returns json object
+  resp.json()
+
+```
+
+Same thing book, movie, character, quote, chapter
+
+#### Get single item attribute eg. single book chapter
+
+```python
+  # sends request to /book/{id}/chapter
+  resp = api.movie(the_id="id of the item", extra_path="chapter")
+
+  # Returns json object
+  resp.json()
+
+```
+
+Same thing book, movie, character, quote, chapter
+
+
+#### Limit, Page, Offset
+
+```python
+  # limit by 20, offset by 1 and page 1 (by default a page is limited to 10)
+  resp = api.book(limit=20)
+  resp = api.book(page=1)
+  resp = api.book(offset=1)
+
+  # Returns json object
+  resp.json()
+
+```
+
+#### Sort
+
+```python
+  # syntax 'value to be sorted by:asc or desc' for ascending and descending order respectively
+  resp = api.character(sort='name:asc')
+
+  # Returns json object
+  resp.json()
+
+```
+
+
+#### Filter
+
+
+| Option | Example | Example| 
+| --- | --- | --- |
+| match, negate match | match, negate match | name!=Frodo |
+| include, exclude | race=Hobbit,Human | race!=Orc,Goblino |
+| exists, doesn't exists | name | !name |
+| regex | name=/foot/i | name!=/foot/i |
+| less than, greater than or equal to | budgetInMillions<100 | academyAwardWins>0 |
+
+
+```python
+  # syntax value to be filtered. operation, value
+  resp = api.character(filter='race=Hobbit,Human')
+
+  # Returns json object
+  resp.json()
+
+```
+
+#### Tests
+  Clone the repo
+  [Github](https://github.com/Maxzeno/lord_of_the_rings_sdk)
+
+  run 'test/name of test'
+

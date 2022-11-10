@@ -68,11 +68,3 @@ class LordOfTheRings:
 		""" Returns chapter. If the_id is given returns a specific book"""
 		path = 'chapter'
 		return self._base_request(path, *args, **kwargs)
-
-
-def main():
-	api = LordOfTheRings('fDCIpmKnesCL7xZEl4MN')
-	print(api.character(limit=20, page=1, offset=1, sort='character:asc', filter='race=Hobbit,Human').json())
-
-if __name__ == '__main__':
-	main()
