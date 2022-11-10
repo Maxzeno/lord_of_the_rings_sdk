@@ -95,7 +95,7 @@ Same thing book, movie, character, quote, chapter
 
 | Option | Example | Example| 
 | --- | --- | --- |
-| match, negate match | match, negate match | name!=Frodo |
+| match, negate match | name=Frodo | name!=Frodo |
 | include, exclude | race=Hobbit,Human | race!=Orc,Goblino |
 | exists, doesn't exists | name | !name |
 | regex | name=/foot/i | name!=/foot/i |
